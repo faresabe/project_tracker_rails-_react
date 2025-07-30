@@ -6,10 +6,10 @@ class CreateTasks < ActiveRecord::Migration[8.0]
       t.text :description
       t.date :due_date
       t.references :assignee, foreign_key: {to_table: :users}
-      t.string :status, default: 'to_do', null: false
-      t.string :priority, default: 'low', null: false      
-      t.references :parent_task_id, foreign_key: { to_table: :tasks }
+      t.string :status, default: "not_started", null: false
+      t.string :priority, default: "low", null: false   
+      t.references :parent_task, foreign_key: { to_table: :tasks }
       t.timestamps
-    end
+    end 
   end
 end

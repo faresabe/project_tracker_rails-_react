@@ -64,13 +64,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_28_202719) do
     t.text "description"
     t.date "due_date"
     t.bigint "assignee_id"
-    t.string "status", default: "to_do", null: false
+    t.string "status", default: "not_started", null: false
     t.string "priority", default: "low", null: false
-    t.bigint "parent_task_id_id"
+    t.bigint "parent_task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["assignee_id"], name: "index_tasks_on_assignee_id"
-    t.index ["parent_task_id_id"], name: "index_tasks_on_parent_task_id_id"
+    t.index ["parent_task_id"], name: "index_tasks_on_parent_task_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
@@ -90,6 +90,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_28_202719) do
   add_foreign_key "project_members", "users"
   add_foreign_key "projects", "users", column: "owner_id"
   add_foreign_key "tasks", "projects"
-  add_foreign_key "tasks", "tasks", column: "parent_task_id_id"
+  add_foreign_key "tasks", "tasks", column: "parent_task_id"
   add_foreign_key "tasks", "users", column: "assignee_id"
 end
