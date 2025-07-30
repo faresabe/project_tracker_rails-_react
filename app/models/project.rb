@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
+  belongs_to :creator, class_name: 'User'
   has_many :tasks, dependent: :destroy
   has_many :project_members, dependent: :destroy
   has_many :members, through: :project_members, source: :user 
@@ -13,4 +13,11 @@ class Project < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :end_date, comparison: { greater_than_or_equal_to: :start_date, message: "must be on or after the start date" }, if: -> { start_date.present? && end_date.present? }
+
+  
+  scope :by_status, ->(status) { where(status: status) if status.present? }
+  scope :by_priority, ->(priority) { where(priority: priority) if priority.present? }
+  scope :created_by, ->(user_id) { where(creator_id: user_id) if user_id.present? }
+  scope :member_of, ->(user_id) { joins(:project_members).where(project_members: { user_id: user_id }) if user_id.present? }
+
 end

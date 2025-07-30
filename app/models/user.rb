@@ -11,4 +11,16 @@ class User < ApplicationRecord
     validates :first_name, presence: true
     validates :last_name, presence: true
 
+    def member_of_project?(project)
+        project_members.exists?(project: project)
+    end
+
+    def role_in_project(project)
+        project_members.find_by(project: project)&.role
+    end
+
+    def owns_project?(project)
+        project.creator_id == id
+    end
+
 end
