@@ -80,4 +80,4 @@ class ProjectMembersController < ApplicationController
         render json: { error: 'You are not authorized to manage project members.' }, status: :forbidden
       end
     end
-  end
+end
