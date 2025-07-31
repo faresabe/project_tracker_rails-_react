@@ -16,7 +16,12 @@ gem 'active_model_serializers'
 gem 'pagy' # for pagination
 gem 'sidekiq' # for background jobs
 gem 'redis'
+  
+  # FactoryBot for creating test data
+  gem 'factory_bot_rails'
 
+  # Shoulda Matchers for a more readable syntax
+  gem 'shoulda-matchers'
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 

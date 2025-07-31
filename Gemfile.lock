@@ -105,6 +105,11 @@ GEM
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
+    factory_bot (6.5.4)
+      activesupport (>= 6.1.0)
+    factory_bot_rails (6.5.0)
+      factory_bot (~> 6.5)
+      railties (>= 6.1.0)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -285,6 +290,8 @@ GEM
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
+    shoulda-matchers (6.5.0)
+      activesupport (>= 5.2.0)
     sidekiq (8.0.6)
       connection_pool (>= 2.5.0)
       json (>= 2.9.0)
@@ -345,6 +352,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   debug
+  factory_bot_rails
   jwt
   kamal
   pagy
@@ -355,6 +363,7 @@ DEPENDENCIES
   redis
   rspec-rails
   rubocop-rails-omakase
+  shoulda-matchers
   sidekiq
   solid_cable
   solid_cache
