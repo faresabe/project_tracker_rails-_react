@@ -5,7 +5,7 @@ FactoryBot.define do
       status { %w(not_started in_progress completed).sample }
       priority { %w(low medium high critical).sample }
       association :project
-      # The assignee is optional, so we use `nil`
+      
       assignee { nil }
     end
   end

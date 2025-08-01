@@ -11,17 +11,17 @@ gem "puma", ">= 5.0"
 gem 'bcrypt'
 gem 'jwt'
 gem 'rack-cors'
-gem 'rspec-rails'
+
 gem 'active_model_serializers'
 gem 'pagy' # for pagination
 gem 'sidekiq' # for background jobs
 gem 'redis'
   
   # FactoryBot for creating test data
-  gem 'factory_bot_rails'
+ 
 
   # Shoulda Matchers for a more readable syntax
-  gem 'shoulda-matchers'
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
@@ -51,10 +51,19 @@ gem "thruster", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-
+  gem 'factory_bot_rails'
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
+# RSpec for testing
+gem 'rspec-rails'
+  
 
+
+# Shoulda Matchers for a more readable syntax
+gem 'shoulda-matchers'
+
+# Faker for generating realistic-looking test data
+gem 'faker'
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
